@@ -1,0 +1,5 @@
+💡 Quick Tip for Future Runs:
+Whenever you close your terminal and come back to work on this project later, you only need to run two quick commands to get back to business:
+
+cd "c:\Users\utkar\Documents\Gemini Works\Career\AI Projects\Healthcare Claims RAG Chatbot\backend"
+.\venv\Scripts\activate

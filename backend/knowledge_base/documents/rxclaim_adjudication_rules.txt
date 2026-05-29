@@ -1,0 +1,255 @@
+RXCLAIM PHARMACY CLAIMS ADJUDICATION RULES
+Healthcare Claims Knowledge Base | Version 2024.1
+
+This document describes the pharmacy claim adjudication logic used in the RxClaim PBM adjudication platform. It covers eligibility verification, claim editing, pricing, copay calculation, DAW handling, and the sequence of adjudication steps applied to every pharmacy claim transaction.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART I: ADJUDICATION SEQUENCE OVERVIEW
+
+Every pharmacy claim submitted via the NCPDP Telecommunication Standard (Version D.0 or later) is adjudicated through the following ordered sequence of edits. The claim is rejected at the first failing edit; all subsequent edits are not evaluated.
+
+Step 1: Header Validation
+Step 2: Pharmacy Identification
+Step 3: Member Eligibility
+Step 4: Drug Identification
+Step 5: Drug Coverage / Formulary Check
+Step 6: Utilization Management (PA, QL, ST)
+Step 7: Drug Utilization Review (DUR)
+Step 8: Pricing
+Step 9: Cost-Sharing / Copay Calculation
+Step 10: Claim Response Generation
+
+═══════════════════════════════════════════════════════════════════════
+
+PART II: STEP 1 — HEADER VALIDATION
+
+2.1 BIN / PCN / Group Validation
+  The BIN (Bank Identification Number), PCN (Processor Control Number), and Group Number are validated against the payer routing table.
+  - BIN: 6-digit numeric code identifying the insurance network/payer.
+  - PCN: Alpha-numeric code further identifying the sub-plan within the BIN.
+  - Group: Employer group or plan segment identifier.
+  All three must resolve to an active plan record.
+
+2.2 Transaction Type Validation
+  Valid transaction types in NCPDP D.0:
+  - B1: Billing (new claim)
+  - B2: Reversal (void a previously paid claim)
+  - B3: Rebill (reversal + new claim in one transaction)
+  Invalid transaction codes result in a header-level reject with code "R7" (Transaction Not Supported).
+
+2.3 Date of Service Validation
+  - DOS must be ≤ today's date (no future-dated claims).
+  - DOS must be within the plan's timely filing limit (plan-specific, typically 180 or 365 days from DOS).
+  - DOS format must be CCYYMMDD.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART III: STEP 2 — PHARMACY IDENTIFICATION
+
+3.1 NCPDP Provider ID Lookup
+  The pharmacy is identified by the submitted NCPDP Provider ID (7-digit legacy) or NPI (10-digit).
+  Validation checks:
+  - Pharmacy must be active in the PBM's network.
+  - Pharmacy license must not be expired or suspended.
+  - Pharmacy type must be permitted for the claim type (e.g., mail order, specialty, LTC).
+
+3.2 Pharmacy Network Matching
+  Plans may restrict coverage to in-network pharmacies. If the pharmacy is out-of-network and the plan has no out-of-network benefit:
+  - Reject Code 52: Non-Matched Pharmacy Number.
+  Some plans offer a reduced out-of-network benefit with higher member cost-sharing.
+
+3.3 Specialty Pharmacy Requirement
+  For specialty drugs requiring cold chain, REMS (Risk Evaluation and Mitigation Strategy), or hub services, the claim may reject if submitted by a non-specialty pharmacy:
+  - Reject Code 70: Product/Service Not Covered (sub-reason: specialty pharmacy required).
+
+═══════════════════════════════════════════════════════════════════════
+
+PART IV: STEP 3 — MEMBER ELIGIBILITY
+
+4.1 Eligibility File Match
+  The adjudication system searches the eligibility file using:
+  - Member ID (Cardholder ID): Primary lookup key.
+  - Date of Birth: Secondary verification field.
+  - Person Code: Distinguishes cardholder, spouse, dependents.
+  - Group Number: Narrows to the correct plan segment.
+
+4.2 Eligibility Effective Date Checking
+  - The plan effective date must be on or before the Date of Service.
+  - The plan termination date must be after the Date of Service (or null for active coverage).
+  - If member is in a waiting period, the claim is rejected with Code 65 (Patient Not Covered).
+
+4.3 Age and Gender Edits
+  - Pediatric age limits: Some drugs have minimum or maximum age restrictions.
+  - Gender restrictions: Certain drugs are clinically indicated for one gender only.
+  - Age/gender conflicts generate a DUR conflict code (Code 60) that may be overridden by the pharmacist with a professional service code.
+
+4.4 Medicare Coordination of Benefits (COB)
+  For members with Medicare primary coverage:
+  - The claim must be submitted to Medicare Part D first.
+  - RxClaim uses the Medicare as Secondary Payer (MSP) rules to determine payer order.
+  - COB segment in NCPDP D.0 transmits the primary payer's payment information for secondary adjudication.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART V: STEP 4 — DRUG IDENTIFICATION
+
+5.1 NDC Validation
+  The 11-digit NDC (National Drug Code) submitted is validated against the drug file:
+  - Format must be 5-4-2 (Labeler-Product-Package) without hyphens in electronic submission.
+  - NDC must be in the active drug database (sourced from FDA, FDB, or Medi-Span).
+  - Recalled or discontinued NDCs generate Reject Code 77.
+
+5.2 NDC-to-GPI Mapping
+  Each NDC is mapped to a Generic Product Identifier (GPI):
+  - GPI is a 14-character hierarchical drug classification code.
+  - GPI is used for formulary lookup, QL matching, PA trigger identification, and DUR screening.
+  - Multiple NDCs may share the same GPI (different package sizes, manufacturers).
+
+5.3 Quantity and Days Supply Validation
+  - Quantity Dispensed must be > 0.
+  - Days Supply must be > 0 and within plan limits (typically 30-day retail, 90-day mail order).
+  - Metric Decimal Quantity (MDQ) is calculated as Quantity ÷ Daily Dose for liquids and injectables.
+  - For controlled substances, quantity must not exceed the maximum daily dose per DEA/state limits.
+
+5.4 Refill Number Validation
+  - Refill Number 0 = original fill; 1 through 99 = refill number.
+  - Maximum refills per prescription is validated against the prescription on file (for e-prescriptions) or claimed number of refills allowed.
+  - Controlled substances have specific refill restrictions per DEA Schedule:
+    * Schedule II: No refills permitted. New prescription required for each fill.
+    * Schedule III–IV: Up to 5 refills within 6 months.
+    * Schedule V: May have up to 5 refills, state-dependent.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART VI: STEP 5 — FORMULARY EDITS
+
+6.1 Formulary Lookup Logic
+  Using the NDC → GPI mapping, the adjudication system checks:
+  1. Is the GPI on the plan's formulary? (Yes/No)
+  2. What tier is the drug on? (Tier 1 through Tier 5+, or Specialty Tier)
+  3. Are there any utilization management requirements (PA, QL, Step Therapy)?
+
+6.2 Formulary Rejection
+  If the drug's GPI is not on the formulary:
+  - Reject Code 56 (Non-Matched Drug Code / NDC Not Covered) is returned.
+  - An NDC-to-formulary alternative list may be returned in the additional message field.
+  - Member has the right to request a formulary exception (non-formulary exception).
+
+6.3 Tier Assignment Impact on Cost-Sharing
+  The formulary tier determines the member's copay or coinsurance at the point of sale:
+  - Tier 1 (Preferred Generic): Lowest copay (e.g., $5–$10)
+  - Tier 2 (Non-Preferred Generic / Preferred Brand): Moderate copay (e.g., $20–$35)
+  - Tier 3 (Non-Preferred Brand): Higher copay (e.g., $50–$75)
+  - Tier 4 (Non-Preferred Brand): Highest fixed copay or coinsurance (e.g., $90–$120 or 40%)
+  - Specialty Tier: High coinsurance (typically 25–33% of drug cost)
+
+═══════════════════════════════════════════════════════════════════════
+
+PART VII: STEP 6 — UTILIZATION MANAGEMENT
+
+7.1 Prior Authorization (PA) Edit
+  If the drug's GPI is flagged for PA:
+  - System checks for a valid, current PA on file for this member/drug/indication.
+  - PA must be: (a) approved, (b) not expired, (c) within the approved quantity limits.
+  - If no valid PA: Reject Code 75 (Prior Authorization Required).
+  - PA number is stored in the claim for audit purposes.
+
+7.2 Quantity Limit (QL) Edit
+  Quantity Limits restrict the maximum dispensed quantity per fill or per time period:
+  - Per-fill QL: Maximum quantity per single dispensing (e.g., ≤ 30 tablets per fill).
+  - Per-time-period QL: Maximum quantity within a rolling window (e.g., ≤ 90 tablets per 30 days).
+  - If submitted quantity exceeds QL: Reject Code 76 (Plan Limitations Exceeded).
+  - QL can be overridden with an approved QL exception (requires PA-like documentation).
+
+7.3 Step Therapy (ST) Edit
+  Step Therapy requires that a member has tried a preferred drug before the requested drug will be covered:
+  - System checks the member's claim history for evidence of the required step drug.
+  - If step drug has been tried and failed: PA approval required to bypass.
+  - If step drug has not been tried: Reject Code 75 with sub-reason "Step Therapy Required."
+  - Step therapy overrides require prescriber attestation that step therapy is medically contraindicated.
+
+7.4 Refill-Too-Soon (RTS) Edit
+  The RTS edit prevents early dispensing based on the member's drug utilization history:
+  - System calculates the earliest refill date (ERD) = Last Fill Date + (Days Supply × 0.75) — using a 75% fill threshold by default.
+  - If DOS is before ERD: Reject Code 57 (Refill Too Soon).
+  - RTS threshold is plan-configurable (common values: 75%, 80%, or 87%).
+  - Override scenarios: Vacation supply, mail order conversion, lost/stolen medication (requires plan approval).
+
+═══════════════════════════════════════════════════════════════════════
+
+PART VIII: STEP 7 — DRUG UTILIZATION REVIEW (DUR)
+
+8.1 DUR Screening Categories
+  RxClaim's DUR engine screens all claims against:
+  1. Drug-Drug Interactions (DDI): Clinical severity levels 1 (contraindicated) through 5 (minor).
+  2. Drug-Age Conflict (DAG): Drug inappropriate for member's age (e.g., Beers Criteria for elderly).
+  3. Drug-Gender Conflict (DGN): Drug not indicated for member's biological sex.
+  4. Duplicate Therapy (TH): Same drug class dispensed within the lookback period.
+  5. High Dose (HD): Dose exceeds the maximum recommended dose per clinical guidelines.
+  6. Precaution (PA): Drug requires specific monitoring or precautions.
+  7. Pregnancy Conflict (PG): Drug is teratogenic (Category D or X) for a female of childbearing age.
+
+8.2 DUR Severity and Handling
+  - Severity 1 (Contraindicated): Hard reject in some plans; soft edit (DUR alert) in others.
+  - Severity 2 (Major): Hard or soft edit per plan configuration.
+  - Severity 3 and below: Typically soft edits that require pharmacist acknowledgment via a professional service code.
+  - Reject Code 60 (DUR Reject) is generated for hard stops.
+
+8.3 DUR Override
+  Pharmacist submits a Professional Service Code (e.g., M0 = prescriber consulted) and an Outcome Code to acknowledge the DUR conflict and proceed with dispensing.
+  All DUR overrides are logged for plan sponsor and clinical review.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART IX: STEP 8 — PRICING
+
+9.1 Ingredient Cost Calculation
+  Ingredient cost is calculated as: NDC Unit Cost × Quantity Dispensed
+  NDC unit costs are sourced from the plan's pricing file, which may use:
+  - AWP (Average Wholesale Price): Industry benchmark price; typically discounted (AWP minus X%).
+  - WAC (Wholesale Acquisition Cost): Manufacturer's list price.
+  - MAC (Maximum Allowable Cost): Plan-set ceiling for multi-source drugs; promotes generic substitution.
+  - FUL (Federal Upper Limit): CMS-set maximum for Medicaid (applicable to Medicaid MCO plans).
+  - U&C (Usual and Customary): Pharmacy's cash price; plan pays the lower of U&C or contracted rate.
+
+9.2 Dispensing Fee
+  The dispensing fee is added to the ingredient cost:
+  - Retail pharmacy: Typically $1.00–$3.00 per fill (contractually set).
+  - Mail order pharmacy: Typically $0 (bundled into PBM economics).
+  - Specialty pharmacy: Variable; may include clinical coordination fees.
+
+9.3 Pricing Hierarchy (Lower of Logic)
+  The adjudicated ingredient cost is the LOWER of:
+  1. The plan's contracted rate (AWP-discount or WAC-discount)
+  2. The MAC price (for multi-source drugs)
+  3. The pharmacy's U&C cash price
+  4. The FUL price (Medicaid plans)
+
+═══════════════════════════════════════════════════════════════════════
+
+PART X: STEP 9 — COST-SHARING CALCULATION
+
+10.1 Deductible Phase
+  If the member has not yet met their annual deductible, the full drug cost (ingredient cost + dispensing fee) is applied to the deductible, and the member pays the full cost.
+
+10.2 Initial Coverage Phase
+  After meeting the deductible, the member pays a copay (fixed dollar) or coinsurance (percentage) based on the formulary tier.
+
+10.3 Coverage Gap (Part D Specific)
+  Under the Inflation Reduction Act (2022), as of 2024:
+  - The coverage gap (donut hole) coinsurance is reduced to 25% for brand drugs.
+  - Members reaching the OOPC threshold ($8,000 in 2024) pay $0 thereafter.
+
+10.4 True Out-of-Pocket (TrOOP) Tracking
+  TrOOP accumulates the following member payments:
+  - Deductible payments
+  - Copays and coinsurance in initial coverage
+  - Coverage gap payments
+  TrOOP does NOT include: plan premium, amounts paid by third parties (employer HRA/FSA), or non-covered drugs.
+
+10.5 LIS Cost-Sharing Application
+  For Low-Income Subsidy members, standard cost-sharing is overridden by LIS-specific copays at adjudication time. The PBM system must detect the LIS indicator in the eligibility record and apply reduced copays automatically.
+
+═══════════════════════════════════════════════════════════════════════
+END OF DOCUMENT — RXCLAIM ADJUDICATION RULES v2024.1

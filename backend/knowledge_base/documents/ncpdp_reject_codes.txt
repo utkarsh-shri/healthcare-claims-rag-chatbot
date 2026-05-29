@@ -1,0 +1,267 @@
+NCPDP REJECT CODES — PHARMACY CLAIMS ADJUDICATION REFERENCE
+Healthcare Claims Knowledge Base | Version 2024.1
+
+This document provides a comprehensive reference for National Council for Prescription Drug Programs (NCPDP) Telecommunication Standard reject codes encountered during pharmacy claim adjudication in a Pharmacy Benefit Management (PBM) system. Each entry includes the reject code, meaning, common causes, and recommended resolution steps for claims processors and pharmacists.
+
+═══════════════════════════════════════════════════════════════════════
+
+CODE 01 — M/I BIN NUMBER (BANK IDENTIFICATION NUMBER)
+Meaning: The BIN number submitted on the claim does not match a valid payer in the system.
+Common Causes: Incorrect insurance card BIN; member using outdated card; data entry error.
+Resolution Steps:
+  1. Verify the BIN number on the member's current insurance card.
+  2. Confirm the member's eligibility and correct BIN with the PBM.
+  3. Resubmit claim with the correct BIN number.
+  4. If BIN is correct and still rejecting, contact PBM help desk.
+
+CODE 04 — M/I PROCESSOR CONTROL NUMBER
+Meaning: The Processor Control Number (PCN) submitted does not match the payer's records.
+Common Causes: Outdated insurance card; wrong PCN for the plan group.
+Resolution Steps:
+  1. Verify PCN from the current member insurance card.
+  2. Cross-reference with the payer's PCN lookup directory.
+  3. Resubmit with corrected PCN.
+
+CODE 06 — M/I GROUP NUMBER
+Meaning: The group number submitted does not correspond to an active plan group.
+Common Causes: Member changed employers; group transferred to new plan; data entry error.
+Resolution Steps:
+  1. Obtain current group number from the member's insurance card or HR department.
+  2. Verify group is active in the adjudication system.
+  3. Resubmit with the correct group number.
+
+CODE 07 — M/I CARDHOLDER ID NUMBER
+Meaning: The cardholder/member ID submitted is not found or is invalid.
+Common Causes: Member ID typed incorrectly; member not yet enrolled; ID belongs to another plan.
+Resolution Steps:
+  1. Ask the member to provide their physical insurance card.
+  2. Verify ID format matches plan requirements (e.g., alpha prefix + 9 digits).
+  3. Confirm member enrollment status with the PBM eligibility system.
+  4. Resubmit with verified member ID.
+
+CODE 08 — M/I PERSON CODE
+Meaning: The person code (relationship code) submitted is invalid for this member.
+Common Causes: Dependent submitted as cardholder; incorrect relationship code.
+Resolution Steps:
+  1. Verify member relationship (cardholder=01, spouse=02, dependent=03).
+  2. Resubmit with the correct person code.
+
+CODE 21 — M/I DATE OF SERVICE
+Meaning: The date of service is invalid, in the future, or outside the allowed billing window.
+Common Causes: Future-dated claims; claim submitted after the timely filing deadline; date format error.
+Resolution Steps:
+  1. Confirm date of service is on or before today's date.
+  2. Verify claim is within the plan's timely filing window (typically 180–365 days).
+  3. Resubmit with a valid date in CCYYMMDD format.
+
+CODE 22 — M/I DAYS SUPPLY
+Meaning: Days supply submitted is outside the allowed range for this drug/plan.
+Common Causes: Excess supply submitted (e.g., 100-day supply for a 90-day plan); zero days submitted.
+Resolution Steps:
+  1. Verify plan's maximum days supply (typically 30 or 90 days for retail; 90 for mail order).
+  2. Resubmit with days supply within the allowed range.
+
+CODE 25 — M/I PRESCRIBER ID
+Meaning: The prescriber's NPI or DEA number is missing, invalid, or not authorized.
+Common Causes: Prescriber NPI not in NPPES; DEA number expired; controlled substance requires DEA.
+Resolution Steps:
+  1. Verify prescriber NPI at nppes.cms.hhs.gov.
+  2. For controlled substances, ensure a valid DEA number is submitted.
+  3. Contact the prescriber's office to confirm their active NPI/DEA.
+  4. Resubmit with verified prescriber ID.
+
+CODE 27 — M/I DIAGNOSIS CODE
+Meaning: The ICD-10 diagnosis code is missing or invalid for plans requiring medical necessity linkage.
+Common Causes: Incomplete diagnosis code; code not valid for the drug; PA requirement tied to diagnosis.
+Resolution Steps:
+  1. Obtain a valid ICD-10 code from the prescriber.
+  2. Verify the code is appropriate for the drug being dispensed.
+  3. Resubmit with a valid, complete diagnosis code.
+
+CODE 41 — SUBMIT BILL TO OTHER PROCESSOR OR PRIMARY PAYER
+Meaning: This member has primary coverage elsewhere; the claim must go to the primary payer first.
+Common Causes: COB (Coordination of Benefits) situation; Medicare Part D member submitting to commercial plan.
+Resolution Steps:
+  1. Identify the primary payer using the COB lookup tool.
+  2. Submit the claim to the primary payer first.
+  3. After primary adjudication, submit the Explanation of Benefits (EOB) to the secondary payer.
+
+CODE 42 — SUBMIT BILL TO COB PROCESSOR
+Meaning: This claim should be submitted to the Coordination of Benefits (COB) processor.
+Common Causes: Member has both Medicare and commercial coverage; incorrect payer order.
+Resolution Steps:
+  1. Submit to the primary plan first and obtain the primary EOB.
+  2. Use the COB processor BIN/PCN for secondary submission.
+  3. Include the primary paid amount in the claim.
+
+CODE 52 — NON-MATCHED PHARMACY NUMBER
+Meaning: The pharmacy NPI or NCPDP provider ID is not registered or active.
+Common Causes: New pharmacy not yet enrolled; incorrect NPI submitted; pharmacy license expired.
+Resolution Steps:
+  1. Verify pharmacy NCPDP number registration at ncpdp.org.
+  2. Confirm pharmacy NPI is active in NPPES.
+  3. Contact the PBM to initiate pharmacy enrollment if needed.
+
+CODE 54 — NON-MATCHED PRESCRIBER ID
+Meaning: The prescriber ID is not found in the payer's prescriber database.
+Common Causes: Prescriber not credentialed with this plan; NPI recently issued and not yet propagated.
+Resolution Steps:
+  1. Verify prescriber NPI in NPPES and confirm active status.
+  2. Allow 24–48 hours for new NPIs to propagate to payer systems.
+  3. Contact PBM provider relations to add prescriber to the network.
+
+CODE 56 — NON-MATCHED DRUG CODE (NDC NOT COVERED)
+Meaning: The NDC (National Drug Code) submitted is not in the plan's formulary.
+Common Causes: Drug not on formulary; NDC reformulated; generic substitution available.
+Resolution Steps:
+  1. Check the plan's formulary for covered alternatives.
+  2. Dispense a covered therapeutic alternative if clinically appropriate.
+  3. Initiate a formulary exception process if the drug is medically necessary.
+  4. Contact the prescriber to discuss covered alternatives.
+
+CODE 57 — REFILL TOO SOON
+Meaning: The claim is being submitted before the allowed refill date based on days supply on file.
+Common Causes: Member filling early; days supply discrepancy from prior fill; vacation override not applied.
+Resolution Steps:
+  1. Calculate the earliest refill date (previous fill date + days supply - refill buffer).
+  2. If member is traveling, apply a vacation override (requires member request and plan allowance).
+  3. If days supply was incorrect on the prior fill, contact the PBM to correct the record.
+  4. Resubmit on or after the eligible refill date.
+
+CODE 60 — DRUG UTILIZATION REVIEW (DUR) REJECT
+Meaning: The claim was rejected by automated DUR screening for a clinical safety concern.
+Common Causes: Drug-drug interaction; duplicate therapy; contraindicated age/gender; dose exceeded.
+Resolution Steps:
+  1. Review the specific DUR conflict code returned in the additional message field.
+  2. Contact the prescriber to confirm the therapy is intentional and clinically appropriate.
+  3. If appropriate, submit with a DUR conflict override code (e.g., "M0" for prescriber-confirmed).
+  4. Document the clinical rationale in the patient's pharmacy record.
+
+CODE 65 — PATIENT IS NOT COVERED
+Meaning: The member is not eligible for pharmacy benefits under this plan on the date of service.
+Common Causes: Coverage terminated; not yet effective; member disenrolled due to premium non-payment.
+Resolution Steps:
+  1. Verify member eligibility through the real-time eligibility portal.
+  2. Confirm effective and termination dates.
+  3. Direct the member to contact their plan sponsor (employer/insurer) for coverage reinstatement.
+  4. Offer cash pay price as an alternative if eligible.
+
+CODE 70 — PRODUCT/SERVICE NOT COVERED
+Meaning: The specific drug product or service category is excluded from this member's benefit plan.
+Common Causes: OTC product; cosmetic drug; excluded drug class (e.g., weight loss, fertility).
+Resolution Steps:
+  1. Review the plan's Exclusion List for excluded drug categories.
+  2. Inform the member of the exclusion and cash pay options.
+  3. Determine if a medical benefit carve-out applies (e.g., drug covered under medical, not pharmacy).
+
+CODE 75 — PRIOR AUTHORIZATION REQUIRED
+Meaning: The drug requires prior authorization (PA) from the member's plan before it can be dispensed.
+Common Causes: Specialty drug; non-preferred brand on formulary; high-cost biologic; step therapy required.
+Resolution Steps:
+  1. Notify the prescriber that PA is required before dispensing.
+  2. Provide the prescriber with the plan's PA fax number or portal link.
+  3. The prescriber submits clinical documentation (diagnosis, previous therapies tried, clinical necessity).
+  4. The plan's UM team reviews the request within 72 hours (standard) or 24 hours (urgent).
+  5. If approved, resubmit the claim. If denied, inform the prescriber of the appeals process.
+  Note: Do NOT dispense the medication until PA is approved, except in medical emergencies.
+
+CODE 76 — PLAN LIMITATIONS EXCEEDED
+Meaning: The member has exceeded a plan limit (quantity, fills, or cost threshold) for this drug.
+Common Causes: Quantity limits (QL) reached; annual fill limit exceeded; maximum benefit reached.
+Resolution Steps:
+  1. Identify the specific limit type from the reject message.
+  2. Notify the member and prescriber of the limit reached.
+  3. A quantity limit exception may be submitted with medical justification.
+  4. Review plan documents for the reset period (typically plan year).
+
+CODE 77 — DISCONTINUED PRODUCT/SERVICE
+Meaning: The NDC submitted refers to a discontinued or recalled drug product.
+Common Causes: Drug manufacturer discontinued NDC; FDA recall; product reformulated under new NDC.
+Resolution Steps:
+  1. Check the FDA MedWatch recall database for current status.
+  2. Identify the replacement NDC for the same drug.
+  3. Dispense the replacement product and resubmit with the new NDC.
+  4. Notify the prescriber if a therapeutic alternative is required.
+
+CODE 78 — COST EXCEEDS MAXIMUM
+Meaning: The submitted drug cost exceeds the plan's allowable maximum for this drug.
+Common Causes: Specialty drug AWP above plan threshold; incorrectly calculated U&C price.
+Resolution Steps:
+  1. Verify the submitted ingredient cost against the plan's MAC or AWP pricing.
+  2. Adjust the U&C (Usual and Customary) price if a pricing error occurred.
+  3. Contact the PBM pricing team if the drug cost is legitimately above plan maximum.
+
+CODE 79 — REFILLS NOT COVERED FOR THIS PRODUCT
+Meaning: Refills are not allowed for this drug type under the member's plan.
+Common Causes: Controlled substance refill restriction; new prescription required; plan-specific refill exclusion.
+Resolution Steps:
+  1. Obtain a new prescription from the prescriber.
+  2. For controlled substances, verify state law regarding refill restrictions.
+  3. Verify if the drug class is excluded from refill coverage.
+
+CODE 84 — CLAIM NOT COVERED UNDER PRODUCT/SERVICE EXCLUSION
+Meaning: The claim is for a product excluded under a specific carve-out or exclusion list.
+Common Causes: Compound medication exclusion; specialty carve-out; diagnostic test exclusion.
+Resolution Steps:
+  1. Review the plan's complete exclusion schedule.
+  2. Determine if the product may be covered under the medical benefit.
+  3. Inform the member and provide out-of-pocket price.
+
+CODE 85 — CLAIM/SERVICE DENIED — AT THIS TIME
+Meaning: The claim is denied for a non-specific reason at this point in time.
+Common Causes: System processing issue; pend for clinical review; COB not resolved.
+Resolution Steps:
+  1. Resubmit the claim after a short delay (2–4 hours).
+  2. If persistent, contact the PBM help desk with the transaction ID.
+
+CODE 88 — DRUG PLAN EXCLUSION — STATE/FEDERAL MANDATE
+Meaning: The drug is excluded due to a federal or state regulatory mandate.
+Common Causes: CMS exclusion from Part D (e.g., barbiturates, benzodiazepines in original Part D); state Medicaid exclusion.
+Resolution Steps:
+  1. Verify whether federal or state law excludes coverage for this drug.
+  2. If the member qualifies for a state exception, submit through the appropriate waiver process.
+  3. Explore patient assistance programs or manufacturer copay cards.
+
+CODE MO — MISSING OVERRIDE
+Meaning: A DUR, age, or gender override code is required but was not submitted.
+Common Causes: Pediatric dose outside normal range; drug used off-label; drug used in opposite gender.
+Resolution Steps:
+  1. Confirm clinical appropriateness with the prescriber.
+  2. Submit the claim with the appropriate professional service code (e.g., "M0" = prescriber-confirmed).
+  3. Document the override reason in the pharmacy management system.
+
+═══════════════════════════════════════════════════════════════════════
+DAW (DISPENSE AS WRITTEN) CODES REFERENCE
+
+DAW Code 0 — No Product Selection Indicated: Generic may be substituted if available. Standard handling.
+DAW Code 1 — Substitution Not Allowed by Prescriber: Brand name required per physician. Brand drug dispensed; brand copay applies.
+DAW Code 2 — Substitution Allowed — Patient Requested Brand: Member requested brand over generic. Generic copay waived; member pays brand differential.
+DAW Code 3 — Substitution Allowed — Pharmacist Selected Product: Pharmacist made product selection. Document clinical rationale.
+DAW Code 4 — Substitution Allowed — Generic Not in Stock: Generic temporarily unavailable. Document shortage; brand may be dispensed at generic cost if plan allows.
+DAW Code 5 — Substitution Allowed — Brand Drug Dispensed as Generic: Brand dispensed but priced as generic. Common for authorized generic products.
+DAW Code 6 — Override: Used for override scenarios as defined by specific plans.
+DAW Code 7 — Substitution Not Allowed — Brand Drug Mandated by Law: State law prohibits generic substitution. Rare; document applicable statute.
+DAW Code 8 — Substitution Allowed — Generic Not Available in Marketplace: No AB-rated generic exists for this brand. Brand priced at brand cost.
+DAW Code 9 — Substitution Allowed — Dispensing Other: Other dispense scenario. Document in pharmacy notes.
+
+═══════════════════════════════════════════════════════════════════════
+PROFESSIONAL SERVICE CODES (OVERRIDE CODES)
+
+Code AS — Patient Assessment: Pharmacist conducted patient assessment before dispensing.
+Code DE — Drug Utilization Evaluation: Clinical evaluation of drug therapy.
+Code DI — Drug Information: Drug information provided to patient or prescriber.
+Code DP — Drug Profile Review: Full drug profile reviewed for interactions.
+Code EX — Exercise/Activity Instructions: Patient counseled on drug-related activity restrictions.
+Code IT — Intervention: Clinical intervention performed (e.g., physician contacted).
+Code M0 — Prescriber Consultation: Pharmacist consulted prescriber; clinical rationale confirmed.
+Code NI — No Intervention Required: DUR reviewed; no action required.
+Code PA — Product Administration: Drug administered in pharmacy setting.
+Code PH — Patient History: Patient history reviewed prior to dispensing.
+Code PM — Patient Medication Instruction: Full medication instructions provided.
+Code PT — Product Titration: Titration schedule confirmed with patient.
+Code SE — Self-Care Consultation: Patient counseled on self-monitoring.
+Code ST — Stockout: Drug is temporarily out of stock; alternate source arranged.
+Code TC — Therapeutic Consultation: Therapeutic alternative discussion.
+
+═══════════════════════════════════════════════════════════════════════
+END OF DOCUMENT — NCPDP REJECT CODES REFERENCE v2024.1

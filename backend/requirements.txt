@@ -1,0 +1,8 @@
+fastapi==0.110.0
+uvicorn==0.27.0
+groq==0.4.0
+sentence-transformers==2.6.0
+supabase==2.3.0
+python-dotenv==1.0.0
+pydantic
+pytest==7.4.0

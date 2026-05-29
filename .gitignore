@@ -1,0 +1,23 @@
+# Environments
+.env
+.env.local
+.env.*.local
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Databases
+chroma_db/

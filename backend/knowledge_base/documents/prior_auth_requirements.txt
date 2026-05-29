@@ -1,0 +1,198 @@
+PRIOR AUTHORIZATION REQUIREMENTS — SPECIALTY DRUG CATEGORIES
+Healthcare Claims Knowledge Base | Version 2024.1
+
+This document defines the prior authorization (PA) criteria for specialty drug categories commonly encountered in pharmacy benefit management. PA criteria are used by PBM clinical teams and plan sponsors to ensure that high-cost specialty therapies are prescribed appropriately and in accordance with clinical guidelines and evidence-based medicine.
+
+All PA criteria in this document are representative of typical PBM clinical policy and are aligned with FDA-approved indications, major clinical guidelines (e.g., ACR, ADA, ASCO, AASLD), and CMS coverage policies. Individual plan sponsors may have more or less restrictive criteria.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART I: OVERVIEW OF PRIOR AUTHORIZATION
+
+1.1 Purpose of Prior Authorization
+Prior authorization is a utilization management tool that requires clinical review before a drug is covered by the plan. The goals are:
+  - Ensure the drug is used for a covered, clinically appropriate indication.
+  - Confirm that step therapy has been completed if required.
+  - Verify the member's diagnosis is supported by clinical documentation.
+  - Prevent inappropriate use of high-cost therapies.
+
+1.2 PA Request Submission Methods
+PA requests may be submitted via:
+  - Fax to the PBM's clinical team using the standard PA Request Form.
+  - Electronic PA (ePA) via NCPDP SCRIPT ePA standard or CoverMyMeds portal.
+  - Phone (for urgent/expedited requests).
+
+1.3 Required Documentation for All PA Requests
+  - Member name, date of birth, and member ID.
+  - Prescriber name, NPI, specialty, and contact information.
+  - Drug name, strength, dose, frequency, and anticipated duration of therapy.
+  - Clinical diagnosis with ICD-10 code.
+  - Relevant lab values, prior treatment history, and clinical notes.
+
+1.4 PA Decision Timeframes
+  - Standard review: Decision within 72 hours of receipt of complete information.
+  - Urgent/Expedited review: Decision within 24 hours when standard timeline would jeopardize health.
+  - Incomplete PA requests: PBM issues a pend notice requesting additional information; clock restarts upon receipt.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART II: TUMOR NECROSIS FACTOR (TNF) INHIBITORS AND BIOLOGICS
+
+Covered Drugs (Representative): adalimumab (Humira), etanercept (Enbrel), infliximab (Remicade), certolizumab (Cimzia), golimumab (Simponi), abatacept (Orencia), tocilizumab (Actemra), ustekinumab (Stelara)
+
+2.1 Rheumatoid Arthritis (RA)
+PA Approval Criteria (ALL must be met):
+  1. Diagnosis of moderate to severe RA confirmed by a rheumatologist.
+  2. Member has tried and had an inadequate response OR intolerance to at least ONE conventional DMARD:
+     - Methotrexate (at least 3 months at therapeutic dose, typically ≥15 mg/week)
+     - Hydroxychloroquine, sulfasalazine, or leflunomide (if methotrexate is contraindicated)
+  3. Lab work: Positive RF or anti-CCP antibodies (not required for seronegative RA, but clinical justification needed).
+  4. No active tuberculosis (TB); TB screening (PPD or IGRA) performed within the past 12 months and result documented.
+  5. No active or recurrent serious infections.
+
+Step Therapy Note: If the member requests a non-preferred biologic (e.g., brand when biosimilar available), the preferred biosimilar must be tried first unless biosimilar is contraindicated or clinically inappropriate.
+
+2.2 Plaque Psoriasis
+PA Approval Criteria (ALL must be met):
+  1. Diagnosis of moderate to severe chronic plaque psoriasis.
+  2. BSA (Body Surface Area) involvement ≥ 10%, or PASI score ≥ 12, or involvement of special areas (face, hands, feet, genitalia, scalp) significantly impacting function.
+  3. Failure of at least TWO of the following conventional therapies:
+     - Topical corticosteroids (at least 3 months)
+     - UVB or PUVA phototherapy
+     - Methotrexate, cyclosporine, or acitretin (at least 3 months each)
+  4. TB screening negative within 12 months.
+
+2.3 Psoriatic Arthritis
+PA Approval Criteria:
+  1. Diagnosis of psoriatic arthritis confirmed by a rheumatologist or dermatologist.
+  2. Inadequate response to at least ONE NSAID (e.g., naproxen, ibuprofen at adequate dose for ≥4 weeks) AND one conventional DMARD (methotrexate or sulfasalazine, ≥3 months).
+  3. TB screening negative.
+
+2.4 Ankylosing Spondylitis / Axial Spondyloarthropathy
+PA Approval Criteria:
+  1. Diagnosis confirmed by a rheumatologist (imaging confirmation preferred).
+  2. Failure of at least TWO NSAIDs at maximum tolerated doses for ≥4 weeks each.
+  3. High disease activity: BASDAI score ≥4 or CRP elevated.
+
+2.5 Crohn's Disease and Ulcerative Colitis (IBD)
+PA Approval Criteria:
+  1. Diagnosis of moderate to severe Crohn's disease or ulcerative colitis confirmed by gastroenterologist (endoscopy or imaging documentation).
+  2. Failure of conventional therapies:
+     - Corticosteroids (short-term use documented)
+     - Immunomodulators: azathioprine or 6-mercaptopurine (at least 3 months at therapeutic doses, or intolerance documented)
+  3. For Ulcerative Colitis: failure or intolerance to aminosalicylates.
+  4. TB screening current and negative.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART III: JANUS KINASE (JAK) INHIBITORS
+
+Covered Drugs: tofacitinib (Xeljanz), baricitinib (Olumiant), upadacitinib (Rinvoq), ruxolitinib (Jakafi — oncology indication differs)
+
+3.1 Rheumatoid Arthritis (JAK Inhibitors)
+PA Approval Criteria:
+  1. Diagnosis of moderate to severe RA confirmed by rheumatologist.
+  2. Failure of at least ONE TNF inhibitor (e.g., adalimumab, etanercept) at an adequate dose for at least 3 months, OR documented intolerance/contraindication to TNF inhibitors.
+  3. Lab work: CBC and hepatic panel within 3 months (JAK inhibitors are contraindicated with severe hepatic impairment or cytopenia).
+  4. TB screening negative.
+  5. No active malignancy (JAK inhibitors carry boxed warning for malignancy risk).
+  Note: Due to FDA safety updates (2021), JAK inhibitors should be used after TNF inhibitors in RA patients aged ≥50 with ≥1 cardiovascular risk factor.
+
+3.2 Atopic Dermatitis
+PA Approval Criteria:
+  1. Diagnosis of moderate to severe atopic dermatitis by a dermatologist.
+  2. EASI or IGA score documenting severity.
+  3. Failure of at least TWO of: topical corticosteroids, topical calcineurin inhibitors (tacrolimus, pimecrolimus), or dupilumab (Dupixent) — if applicable per plan policy.
+  4. Not a candidate for phototherapy or phototherapy failed.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART IV: MULTIPLE SCLEROSIS (MS) DISEASE-MODIFYING THERAPIES
+
+Covered Drugs: natalizumab (Tysabri), ocrelizumab (Ocrevus), ofatumumab (Kesimpta), alemtuzumab (Lemtrada), siponimod (Mayzent), ozanimod (Zeposia), fingolimod (Gilenya)
+
+4.1 Relapsing MS
+PA Approval Criteria (ALL required):
+  1. Diagnosis of relapsing-remitting MS (RRMS) or clinically isolated syndrome (CIS) confirmed by a neurologist.
+  2. MRI evidence of demyelinating disease (T2 lesions or gadolinium-enhancing lesions) within the past 12 months or documented clinical relapses.
+  3. For high-efficacy therapies (natalizumab, alemtuzumab, ocrelizumab):
+     - Failure of at least ONE first-line DMT (e.g., interferon beta, glatiramer acetate, dimethyl fumarate) — unless high disease activity warrants de novo high-efficacy therapy.
+  4. REMS compliance: For natalizumab, member must be enrolled in TOUCH Prescribing Program. For alemtuzumab, LEMTRADA REMS enrollment required.
+
+4.2 Primary Progressive MS (PPMS)
+PA Approval Criteria:
+  1. Diagnosis of PPMS confirmed by neurologist per McDonald Criteria.
+  2. EDSS (Expanded Disability Status Scale) score documenting disability level.
+  3. MRI evidence consistent with PPMS.
+  4. Age ≥ 18 years.
+  Note: Ocrelizumab (Ocrevus) is the only FDA-approved therapy for PPMS.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART V: DIABETES — GLP-1 AGONISTS AND SGLT-2 INHIBITORS
+
+Covered Drugs (GLP-1): semaglutide (Ozempic, Wegovy, Rybelsus), liraglutide (Victoza, Saxenda), dulaglutide (Trulicity), tirzepatide (Mounjaro, Zepbound)
+Covered Drugs (SGLT-2): empagliflozin (Jardiance), dapagliflozin (Farxiga), canagliflozin (Invokana)
+
+5.1 GLP-1 Agonists for Type 2 Diabetes
+PA Approval Criteria:
+  1. Diagnosis of Type 2 Diabetes Mellitus (T2DM); ICD-10: E11.xx.
+  2. HbA1c ≥ 7.0% (or plan-specific threshold) within the past 3 months.
+  3. Failure or intolerance to metformin at maximum tolerated dose (unless contraindicated: eGFR <30 mL/min/1.73m², or documented intolerance).
+  4. Prescriber specialty: Internal Medicine, Endocrinology, Family Medicine (or PCP with endocrinology co-management note).
+
+5.2 GLP-1 Agonists for Obesity (Wegovy / Zepbound)
+PA Approval Criteria (obesity indication, distinct from diabetes):
+  1. BMI ≥ 30 kg/m², OR BMI ≥ 27 kg/m² with at least one weight-related comorbidity (hypertension, T2DM, dyslipidemia, obstructive sleep apnea, cardiovascular disease).
+  2. Documentation of prior attempt at lifestyle modification (diet and exercise) for at least 3 months.
+  3. Drug prescribed specifically for obesity management (Wegovy/Zepbound NDC must be submitted, not diabetes NDCs).
+  Note: Weight loss drugs are excluded from Medicare Part D coverage per statute. This criterion applies to commercial plans only.
+
+5.3 SGLT-2 Inhibitors
+PA Approval Criteria:
+  1. Diagnosis of T2DM (E11.xx) AND/OR Heart Failure (I50.xx) AND/OR Chronic Kidney Disease Stage 3–4 (N18.3–N18.4).
+  2. eGFR documented within 3 months:
+     - For T2DM-only indication: eGFR ≥ 45 mL/min/1.73m² (canagliflozin), ≥ 30 (empagliflozin/dapagliflozin for HF/CKD).
+  3. For CKD indication: Albuminuria (urine albumin-to-creatinine ratio ≥ 200 mg/g) documented.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART VI: ONCOLOGY — ORAL CHEMOTHERAPY
+
+Covered Drug Examples: imatinib (Gleevec), osimertinib (Tagrisso), ibrutinib (Imbruvica), lenalidomide (Revlimid), palbociclib (Ibrance), venetoclax (Venclexta)
+
+6.1 General Oncology PA Criteria
+PA Approval Criteria (ALL required):
+  1. Oncologist or hematologist as the prescribing specialty.
+  2. Cancer diagnosis documented with:
+     - ICD-10 malignancy code.
+     - Pathology report or biopsy result confirming diagnosis (date within 12 months or current).
+     - Staging documentation.
+  3. Drug matches FDA-approved indication for the documented cancer type and stage.
+  4. Biomarker testing completed where applicable (e.g., EGFR mutation for osimertinib, BCR-ABL for imatinib, BRCA for olaparib).
+  5. REMS compliance where applicable (e.g., lenalidomide requires RevAssist REMS enrollment).
+
+6.2 Quantity Limits for Oral Chemotherapy
+  Oral chemotherapy is typically approved in 28- or 30-day cycles aligned with clinical dosing regimens. Plans should not impose day supply limits that disrupt oncology treatment cycles.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART VII: PA APPEALS AND EXCEPTIONS
+
+7.1 First-Level Internal Appeal
+  - Members or prescribers may appeal a PA denial within 60 days of the denial notice.
+  - Appeals must be decided within 72 hours (standard) or 24 hours (expedited).
+  - Plan's internal medical director must review.
+
+7.2 Independent External Review
+  - If internal appeal is upheld, members may request external independent review.
+  - For Part D: CMS's Independent Review Entity (IRE) conducts the review.
+  - For commercial plans: State-designated Independent Review Organization (IRO).
+
+7.3 Formulary Exception vs. PA
+  - A formulary exception requests coverage of a non-formulary drug.
+  - A PA approves coverage of a formulary drug that requires PA.
+  - Both processes have the same appeal rights under ACA and CMS regulations.
+
+═══════════════════════════════════════════════════════════════════════
+END OF DOCUMENT — PRIOR AUTHORIZATION REQUIREMENTS v2024.1

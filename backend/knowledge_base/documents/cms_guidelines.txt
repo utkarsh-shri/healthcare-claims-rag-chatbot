@@ -1,0 +1,204 @@
+CMS MEDICARE PART D COVERAGE RULES AND GUIDELINES
+Healthcare Claims Knowledge Base | Version 2024.1 | Source: CMS.gov Part D Policy
+
+This document summarizes Centers for Medicare & Medicaid Services (CMS) guidelines governing Medicare Part D prescription drug benefit coverage, formulary requirements, low-income subsidy (LIS) provisions, and the transition fill policy. Intended for use by PBM operations teams, claims processors, and pharmacy benefit administrators.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART I: MEDICARE PART D OVERVIEW
+
+Medicare Part D is the voluntary outpatient prescription drug benefit program established under the Medicare Prescription Drug, Improvement, and Modernization Act of 2003 (MMA). Part D benefits are delivered through private Prescription Drug Plans (PDPs) or Medicare Advantage Prescription Drug Plans (MA-PDs) that contract with CMS.
+
+Key Program Parameters (2024):
+  - Annual Deductible Maximum: $545 (standard benefit)
+  - Initial Coverage Limit (ICL): $5,030 in total drug costs
+  - Out-of-Pocket Threshold (OOPC): $8,000 (eliminates catastrophic coinsurance in 2024)
+  - Catastrophic Coverage: After OOPC, member pays $0 for covered Part D drugs (2024 Inflation Reduction Act change)
+  - Coverage Gap ("Donut Hole"): Effectively eliminated in 2024 for most standard plans
+
+Plan Sponsors must offer either the defined standard benefit or an actuarially equivalent alternative. Enhanced benefit plans may offer additional coverage beyond the standard.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART II: FORMULARY REQUIREMENTS
+
+CMS requires all Part D plan sponsors to maintain a formulary that meets the following requirements:
+
+2.1 Minimum Drug Coverage — Six Protected Classes
+Part D plans MUST cover all or substantially all drugs in these six therapeutic categories:
+  1. Immunosuppressants (for prevention of organ transplant rejection)
+  2. Antidepressants
+  3. Antipsychotics
+  4. Anticonvulsants (seizure medications)
+  5. Antiretrovirals (HIV/AIDS medications)
+  6. Antineoplastics (cancer medications)
+No plan may impose restrictions on these six classes that are not based on clinical grounds and approved by CMS.
+
+2.2 Formulary Review and Approval
+  - Plans must submit formularies to CMS annually for review.
+  - Mid-year formulary changes that restrict access (tier moves, PA additions, QL additions) require CMS approval and 60-day member advance notice.
+  - Adding a drug to the formulary or removing restrictions does not require advance notice.
+  - Formularies are published on Medicare Plan Finder (medicare.gov).
+
+2.3 Non-Formulary Drug Access
+If a drug is not on the formulary, members may:
+  (a) Request a formulary exception for medical necessity (see Part VI).
+  (b) Pay cash price out-of-pocket (does not count toward TrOOP).
+  (c) Receive a transition fill (see Part IV).
+
+2.4 Cost-Sharing Requirements
+  - Plans must place generics in Tier 1 or Tier 2 (preferred generics in Tier 1).
+  - Plans may not place a drug in a higher cost-sharing tier solely to discourage use.
+  - Specialty drugs (typically >$670/month threshold in 2024) may be placed on a Specialty Tier with up to 33% coinsurance.
+  - Insulin products: Cost sharing capped at $35/month per covered insulin product (IRA 2022).
+
+═══════════════════════════════════════════════════════════════════════
+
+PART III: PRIOR AUTHORIZATION IN PART D
+
+3.1 Authority to Require PA
+Part D plans may require prior authorization as a utilization management tool when:
+  - The drug has a high risk of abuse or misuse.
+  - The drug is indicated only for specific diagnoses.
+  - Clinical guidelines recommend step therapy before use.
+  - The drug has a narrow therapeutic index.
+
+3.2 PA Timeframes (Regulatory Requirements)
+  - Standard PA decision: Within 72 hours of receipt of request.
+  - Expedited (urgent) PA decision: Within 24 hours when standard timeline would seriously jeopardize health.
+  - If the plan fails to meet these timeframes, the request is deemed approved.
+
+3.3 PA Denial Rights
+  When a PA is denied, the plan must:
+  1. Notify the prescriber and member in writing of the denial.
+  2. Provide the specific clinical reason for denial.
+  3. Inform the member of the right to appeal.
+  4. Include information about the Independent Review Entity (IRE) process.
+
+3.4 Transition Fills During PA Review
+  For transition situations (see Part IV), a 30-day emergency supply must be provided even if PA has not yet been approved, for non-long-term care members.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART IV: TRANSITION POLICY
+
+CMS requires Part D plan sponsors to have a transition policy to assist members who are stabilized on medications that may not be on the new plan's formulary.
+
+4.1 Transition Eligibility
+A transition fill is required for:
+  - New Part D enrollees who are currently taking drugs not on the plan's formulary.
+  - Members who experience a mid-year formulary change that removes their drug.
+  - Members transitioning from other coverage (e.g., Medicaid to Part D).
+
+4.2 Transition Supply Requirements
+  - Retail pharmacy: At least one 30-day supply per drug during the transition period.
+  - Long-term care (LTC) pharmacy: At least a 31-day supply, or a lesser supply if the dispensing unit is smaller (e.g., 7-day supply for LTC with daily pill dispense).
+  - Transition period: 90 days from enrollment effective date.
+
+4.3 Transition Notice
+  - The plan must send a written notice to the member within 3 business days of the transition fill.
+  - Notice must explain that the drug is not covered, the right to request a formulary exception, and available alternatives.
+
+4.4 Non-Applicable Situations
+  Transition fills are NOT required for:
+  - Drugs that are excluded from Part D coverage by statute (see Part V).
+  - Drugs on a plan's formulary that simply require PA (standard PA process applies).
+  - Members who knowingly enrolled in a plan without checking formulary coverage.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART V: CMS PART D COVERAGE EXCLUSIONS
+
+By statute and CMS regulation, the following drug categories are excluded from Part D coverage and cannot be covered by the Part D benefit (though they may be covered under Part B or state Medicaid):
+
+5.1 Statutory Exclusions
+  1. Drugs covered under Medicare Part A or Part B (e.g., most infusion drugs administered in a clinical setting).
+  2. Nonprescription drugs (OTC medications), except as specifically approved by CMS.
+  3. Drugs primarily for the treatment of anorexia, weight loss, or weight gain (unless used for a covered indication).
+  4. Drugs for promoting fertility.
+  5. Drugs for cosmetic purposes or hair growth.
+  6. Drugs for the treatment of erectile dysfunction.
+  7. Drugs for cough and cold symptoms.
+  8. Prescription vitamins and minerals (except prenatal vitamins and fluoride preparations).
+  9. Barbiturates (unless used to treat epilepsy, cancer, or chronic mental disorder).
+  10. Benzodiazepines (original exclusion; CMS lifted this exclusion effective January 2013 — benzodiazepines ARE now covered by Part D).
+
+Note on Benzodiazepines: Effective January 1, 2013, CMS removed benzodiazepines from the list of excluded Part D drugs. All Part D plans must now cover benzodiazepines. Claims processors must ensure this exclusion code is NOT applied to benzodiazepine claims.
+
+5.2 CMS-Approved Exceptions
+Certain drugs may obtain a waiver to be covered on a Part D formulary even if they fall into an exclusion category, provided CMS grants approval during the formulary review process.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART VI: LOW-INCOME SUBSIDY (LIS / EXTRA HELP)
+
+The Low-Income Subsidy (LIS) program, also known as "Extra Help," provides financial assistance for Part D premiums, deductibles, and cost-sharing for eligible low-income Medicare beneficiaries.
+
+6.1 LIS Eligibility
+Full LIS: Income ≤ 135% FPL and resources ≤ $16,660 (single) / $33,240 (couple) — 2024 thresholds.
+Partial LIS: Income between 135–150% FPL — sliding scale cost-sharing assistance.
+Automatic Eligibility: Members receiving full Medicaid, SSI, or MSP (Medicare Savings Programs) are automatically enrolled.
+
+6.2 LIS Cost-Sharing (2024 Benchmark Plans)
+  Full LIS Beneficiaries:
+    - Deductible: $0
+    - Generic copay: $4.50
+    - Brand/non-preferred copay: $11.20
+    - Catastrophic phase copay: $0 (2024)
+
+  Partial LIS Beneficiaries:
+    - Deductible: $103 (15% of standard deductible)
+    - Cost-sharing: 15–25% of drug costs depending on income level
+
+6.3 LIS Formulary Protections
+  - LIS members are protected from mid-year formulary changes.
+  - If a drug is removed mid-year for an LIS member, the plan must continue coverage through the end of the plan year.
+  - LIS members cannot be charged more than the LIS copay maximums regardless of which tier the drug is on.
+
+6.4 Claims Adjudication for LIS Members
+  - LIS indicator transmitted in NCPDP field: Other Coverage Code or additional information field.
+  - PBM systems must identify LIS status and apply the correct reduced cost-sharing at point of sale.
+  - Incorrect application of LIS status results in overcharging the member — a CMS compliance violation.
+
+6.5 Auto-Enrollment and Reassignment
+  - CMS auto-enrolls newly eligible full-LIS members into benchmark PDPs each year.
+  - LIS members may be reassigned annually if their current plan no longer qualifies as a benchmark.
+  - Members must be notified of reassignment by November of the preceding year.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART VII: MEDICATION THERAPY MANAGEMENT (MTM)
+
+CMS requires Part D sponsors to offer MTM programs to high-risk beneficiaries.
+
+7.1 MTM Eligibility Criteria
+Members must meet ALL three criteria:
+  1. Have multiple chronic conditions (minimum of 2–3, as defined by the plan).
+  2. Take multiple Part D drugs (minimum of 8 recommended by CMS).
+  3. Be likely to incur annual drug costs at or above $5,330 (2024 threshold).
+
+7.2 MTM Services Required
+  - Comprehensive Medication Review (CMR): Annual, interactive, patient-centered review.
+  - Targeted Medication Review (TMR): At least quarterly review with follow-up interventions.
+  - Written summaries in plain language provided to the member after each CMR.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART VIII: CMS REPORTING AND COMPLIANCE
+
+8.1 Prescription Drug Event (PDE) Data
+  - All Part D claims must be submitted to CMS as PDE records.
+  - PDEs must be submitted within the CMS reporting window (typically 3 months after the service date for interim reconciliation).
+  - Inaccurate PDE data is a compliance violation subject to CMS audit and financial penalties.
+
+8.2 Risk Corridors and Reconciliation
+  - CMS reconciles premium stabilization payments through risk corridors annually.
+  - Sponsors must submit final PDE data for reconciliation by September 30 of the following year.
+
+8.3 Audit and Oversight
+  - CMS conducts Program Audits (CPE, IRE, Part D Coverage Determinations) on plan sponsors annually.
+  - Plans failing CMS audits may face civil monetary penalties (CMPs) up to $25,000 per member affected.
+  - Sponsors must maintain all claims and prior authorization records for a minimum of 10 years.
+
+═══════════════════════════════════════════════════════════════════════
+END OF DOCUMENT — CMS MEDICARE PART D GUIDELINES v2024.1

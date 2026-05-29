@@ -1,0 +1,208 @@
+FORMULARY TIERS, STEP THERAPY RULES, AND EXCEPTIONS PROCESS
+Healthcare Claims Knowledge Base | Version 2024.1
+
+This document defines the formulary tier structure, cost-sharing design, step therapy protocols, quantity limit policies, and the formulary exception and appeal process used in a standard commercial and Medicare Part D pharmacy benefit plan design. Claims processors and pharmacy operations staff should reference this document when responding to formulary-related member and pharmacy inquiries.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART I: FORMULARY TIER STRUCTURE
+
+A formulary is the plan's list of covered prescription drugs, organized into tiers that determine the member's cost-sharing at the pharmacy.
+
+1.1 Standard Five-Tier Formulary
+
+Tier 1 — Preferred Generic Drugs
+  Definition: FDA-approved generic medications that are preferred by the plan for first-line use.
+  Cost-Sharing:
+    - Commercial plan: Copay typically $5–$15 per 30-day supply.
+    - Medicare Part D: Copay typically $4–$10 per 30-day supply (reduced for LIS members).
+  Examples: metformin, lisinopril, atorvastatin (generic), omeprazole, metoprolol succinate.
+  Key Rule: Plans must preferentially place generics in Tier 1 or Tier 2 per CMS guidelines.
+
+Tier 2 — Non-Preferred Generic / Preferred Brand Drugs
+  Definition: Generic drugs not designated as preferred, or brand-name drugs the plan has designated as preferred (typically because of formulary rebate economics).
+  Cost-Sharing:
+    - Commercial plan: Copay typically $20–$40 per 30-day supply.
+    - Medicare Part D: Copay typically $15–$25 per 30-day supply.
+  Examples: Preferred brand statins, preferred brand ACE inhibitors, some non-preferred generics.
+
+Tier 3 — Non-Preferred Brand Drugs
+  Definition: Brand-name drugs for which a generic or preferred brand alternative exists. Members pay more to incentivize use of lower-cost alternatives.
+  Cost-Sharing:
+    - Commercial plan: Copay typically $50–$90 per 30-day supply.
+    - Medicare Part D: Copay typically $42–$55 per 30-day supply.
+  Examples: Brand drugs with AB-rated generic equivalents available (e.g., brand Lipitor when generic atorvastatin is on Tier 1).
+  Key Rule: If a member obtains a Tier 3 brand drug via DAW-1 (prescriber requires brand), the member pays the Tier 3 brand copay instead of the generic copay.
+
+Tier 4 — Non-Preferred Brand Drugs (High Cost)
+  Definition: Brand-name drugs that are not preferred and do not have preferred alternatives. Often includes drugs the plan discourages due to cost or clinical appropriateness.
+  Cost-Sharing:
+    - Commercial plan: Copay typically $90–$150 per 30-day supply, OR coinsurance 35–50%.
+    - Medicare Part D: Copay typically $90–$100 per 30-day supply.
+  Examples: Non-preferred brand drugs without biosimilar, high-cost branded maintenance drugs.
+
+Specialty Tier (Tier 5) — Specialty Drugs
+  Definition: High-cost specialty drugs requiring special handling, administration, monitoring, or are primarily dispensed through specialty pharmacies. CMS defines specialty drugs as those with a cost threshold of >$670/month (2024).
+  Cost-Sharing:
+    - Commercial plan: Coinsurance typically 20–33% per fill (may be subject to an out-of-pocket maximum).
+    - Medicare Part D: Coinsurance up to 33% in initial coverage phase (subject to catastrophic phase rules).
+  Examples: adalimumab (Humira), lenalidomide (Revlimid), semaglutide (Ozempic), ocrelizumab (Ocrevus), CAR-T therapies.
+  Key Rule: CMS limits Medicare Part D specialty coinsurance to ≤33% of the negotiated price.
+
+1.2 Extended Tier Designs
+Some commercial plans use additional tiers:
+  - Tier 6 (Select Care / Preventive Tier): Certain preventive medications covered at $0 copay per ACA requirements (e.g., statins for primary prevention, PrEP for HIV, contraceptives).
+  - Biosimilar Tier: Some plans create a dedicated lower-cost tier for biosimilar drugs to incentivize biosimilar adoption over reference biologics.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART II: FORMULARY TIER EXCEPTIONS PROCESS
+
+2.1 When a Tier Exception Is Appropriate
+A member or prescriber may request a tier exception when:
+  - A non-preferred drug is medically necessary because the preferred alternative is clinically inappropriate.
+  - The member has tried the preferred drug and experienced an adverse reaction or lack of efficacy.
+  - The member has a condition that makes the preferred drug contraindicated.
+
+2.2 Tier Exception Request Requirements
+Required documentation:
+  1. Completed formulary exception request form (or ePA submission).
+  2. Clinical statement from the prescriber documenting:
+     - Medical necessity for the non-preferred drug.
+     - Specific reason why the preferred alternative cannot be used (contraindication, adverse effect, therapeutic failure).
+  3. Supporting clinical documentation (lab results, treatment history, adverse drug reaction documentation).
+
+2.3 Tier Exception Decision Timeframes
+  - Standard: 72 hours.
+  - Expedited: 24 hours (if member's health is at risk).
+  - Approved exception: Member pays the lower (preferred/Tier 1 or Tier 2) cost-sharing for the approved non-preferred drug.
+  - Duration: Typically 12 months; must be renewed annually with updated documentation.
+
+2.4 Non-Formulary Exception
+  If the drug is not on the formulary at all (not just a higher tier), the member may request a non-formulary exception.
+  Requirements are the same as a tier exception but also require:
+  - Documentation that no formulary drug in the same therapeutic class is clinically appropriate.
+  Approval result: Drug is covered at Tier 3 or Tier 4 cost-sharing (plan-specific).
+
+═══════════════════════════════════════════════════════════════════════
+
+PART III: STEP THERAPY RULES
+
+Step therapy (also called "step protocol" or "fail-first policy") requires that a member try a less costly or preferred drug before the plan will cover a higher-cost or non-preferred alternative.
+
+3.1 General Step Therapy Principles
+  - Step drugs (required first-line drugs) must be available on the formulary and clinically appropriate.
+  - Steps are applied at the GPI (Generic Product Identifier) level — not at the specific NDC level.
+  - Step therapy is NOT required when the step drug is contraindicated, was previously tried and failed, or the member is currently stable on the non-preferred drug (continuation of therapy).
+
+3.2 Continuity of Care / Grandfathering
+  Members currently stabilized on a drug that becomes subject to step therapy mid-year are typically grandfathered (step therapy does not apply) through the end of the plan year. The PBM must capture the prior fill history to apply grandfathering correctly.
+
+3.3 Step Therapy Protocols by Therapeutic Area
+
+Statins (HMG-CoA Reductase Inhibitors):
+  Step 1 (required): Atorvastatin (generic), simvastatin (generic), or pravastatin (generic) — at least 90 days.
+  Step 2 (available if Step 1 fails): Rosuvastatin (generic or Crestor).
+  Brand statins (e.g., brand Lipitor, brand Crestor): Require Step 1 failure + PA.
+  Step Bypass Condition: Statin intolerance (myopathy, rhabdomyolysis), hepatic contraindication, or drug-drug interaction.
+
+Proton Pump Inhibitors (PPIs):
+  Step 1: Omeprazole (generic) or pantoprazole (generic) — at least 60 days.
+  Step 2: Esomeprazole (generic) or lansoprazole (generic).
+  Brand PPIs (e.g., Nexium, Prilosec brand): Require Step 1 and Step 2 failures.
+  Step Bypass: Barrett's esophagus, GI bleed, confirmed H. pylori treatment.
+
+TNF Inhibitors / Biologics for Inflammatory Conditions:
+  Step 1: Adequate trial of conventional DMARD therapy (see PA criteria document for details).
+  Step 2 (Biosimilar preference): Where an FDA-approved biosimilar exists and is preferred, the biosimilar must be tried before the reference biologic.
+  Example: Biosimilar adalimumab (Hadlima, Hyrimoz, Cyltezo) before brand Humira.
+  Step Bypass: Documented hypersensitivity to biosimilar excipients; clinical instability.
+
+SGLT-2 Inhibitors:
+  Step 1: Metformin at maximum tolerated dose (unless eGFR <30 or intolerance).
+  Step 2: A sulfonylurea (e.g., glipizide, glimepiride) — for glycemic control indication.
+  For cardiovascular/renal indication: SGLT-2 may be covered without step therapy if diagnosis codes reflect HF or CKD.
+
+GLP-1 Receptor Agonists (Diabetes):
+  Step 1: Metformin at maximum tolerated dose.
+  Step 2: A sulfonylurea OR a DPP-4 inhibitor (e.g., sitagliptin, saxagliptin) — at least 90 days each.
+  For high cardiovascular risk patients (ASCVD established): GLP-1 agonists with proven CV benefit (semaglutide, liraglutide) may be approved without step therapy with prescriber documentation.
+
+Opioid Analgesics:
+  Step 1: Trial of non-opioid analgesics (NSAIDs, acetaminophen) for non-cancer pain — must be documented.
+  For cancer pain or end-of-life care: Step therapy is typically waived.
+  Short-acting opioids must be tried before long-acting/extended-release formulations (REMS requirement for ER/LA opioids).
+
+3.4 Step Therapy Override
+  If step therapy has been completed and documented but the system does not reflect prior fills (e.g., drugs filled at a different pharmacy or under different coverage), the prescriber must submit attestation of prior therapy failure, and the PBM clinical team can override the step therapy edit manually.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART IV: QUANTITY LIMITS
+
+4.1 Types of Quantity Limits
+  Per-Fill Limit: Maximum quantity per dispensing transaction.
+    Example: Sildenafil (Viagra/Revatio) — 6 tablets per 30 days for erectile dysfunction indication.
+  Per-Time-Period Limit: Maximum total quantity within a rolling time window.
+    Example: Sumatriptan (Imitrex) — 9 tablets per 30 days for migraine.
+  Dose-Based Limit: Maximum daily dose tied to clinical guidelines.
+    Example: Gabapentin — 3,600 mg/day maximum per FDA label.
+  Duration Limit: Drug covered only for a specific treatment duration.
+    Example: Antibiotics for acute sinusitis — 10-day supply maximum without PA.
+
+4.2 Common Quantity Limit Examples
+
+Opioids:
+  - Short-acting opioids for acute pain (non-cancer): 7-day supply limit per CMS/CDC guidelines (2022).
+  - Extended-release opioids: Require PA and quantity documentation from prescriber.
+
+Sleep Aids:
+  - Zolpidem (Ambien): 10 tablets per 30 days (standard QL).
+  - Eszopiclone (Lunesta): 15 tablets per 30 days.
+  - Lemborexant (Dayvigo): 30 tablets per 30 days.
+
+Erectile Dysfunction:
+  - PDE5 inhibitors (sildenafil, tadalafil, vardenafil): 6–8 tablets per 30 days (varies by plan).
+  - Note: Generic tadalafil and sildenafil QLs apply separately from brand versions.
+
+Self-Injected Biologics:
+  - Adalimumab (standard dosing): 2 syringes per 28 days (40 mg dosing).
+  - Dupilumab (Dupixent): 2 syringes per 28 days (300 mg maintenance).
+
+Oncology:
+  - Oral chemotherapy: QLs generally not applied within the cycle-appropriate quantity. Plans must not restrict oral chemo in ways that delay cancer treatment.
+
+4.3 Quantity Limit Exception Process
+  Same documentation requirements as tier exceptions (see Part II). Approved QL exceptions typically extend the approved quantity for 12 months with annual renewal.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART V: PREVENTIVE DRUG COVERAGE (ACA MANDATE)
+
+Under the Affordable Care Act (ACA), non-grandfathered commercial health plans must cover certain preventive medications at $0 cost sharing.
+
+Currently mandated $0 preventive coverage (select examples):
+  - Statins (primary prevention): For adults aged 40–75 with 10% or greater 10-year CVD risk.
+  - Aspirin (low-dose): For adults aged 50–59 at 10% or greater 10-year CVD risk.
+  - PrEP (Pre-Exposure Prophylaxis for HIV): emtricitabine/tenofovir (Truvada/Descovy) — all ages.
+  - Contraceptives: All FDA-approved contraceptive methods, at $0 for women.
+  - Tobacco cessation: Medications approved for smoking cessation (varenicline, bupropion, NRT).
+  - Colorectal cancer screening agents: Bowel preparation medications.
+
+Note: The ACA preventive coverage mandate applies to in-network services. CMS has ongoing litigation clarifying which USPSTF recommendations require $0 cost sharing.
+
+═══════════════════════════════════════════════════════════════════════
+
+PART VI: INSULIN AFFORDABILITY (PART D — INFLATION REDUCTION ACT)
+
+Effective January 1, 2023 (for Part D), and January 1, 2024 (for commercial plans with HHS guidance):
+
+  - Member cost sharing for covered insulin products is capped at $35 per month per covered insulin product.
+  - This applies regardless of the deductible phase or formulary tier.
+  - The $35 cap applies to a 30-day supply; for 90-day supplies, the cap is $105.
+  - Plans may not apply deductibles to insulin products subject to the cap.
+
+Insulin products subject to the cap must be on the plan's formulary. Non-formulary insulins are not subject to the $35 cap.
+
+═══════════════════════════════════════════════════════════════════════
+END OF DOCUMENT — FORMULARY TIERS AND STEP THERAPY v2024.1
