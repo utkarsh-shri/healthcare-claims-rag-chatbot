@@ -109,16 +109,16 @@ export default function App() {
                 <span className="text-slate-500">Model</span>
                 <span className="font-medium text-slate-700 flex items-center gap-1">
                   <Zap className="w-3 h-3 text-blue-500" />
-                  Gemini 2.0 Flash
+                  Groq Llama 3.1 70B
                 </span>
               </div>
               <div className="flex items-center justify-between text-xs">
                 <span className="text-slate-500">Pipeline</span>
-                <span className="font-medium text-slate-700">RAG · ChromaDB</span>
+                <span className="font-medium text-slate-700">RAG · Supabase pgvector</span>
               </div>
               <div className="flex items-center justify-between text-xs">
                 <span className="text-slate-500">Embeddings</span>
-                <span className="font-medium text-slate-700">gemini-embedding-001</span>
+                <span className="font-medium text-slate-700">fastembed (all-MiniLM-L6)</span>
               </div>
             </div>
           </div>
