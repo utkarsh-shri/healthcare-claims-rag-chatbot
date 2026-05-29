@@ -1,8 +1,8 @@
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
 from supabase import create_client
 import os
 
-model = SentenceTransformer('all-MiniLM-L6-v2')  # loads once at startup
+model = TextEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")  # highly memory efficient
 supabase = create_client(os.environ['SUPABASE_URL'],
                          os.environ['SUPABASE_SERVICE_ROLE_KEY'])
 
@@ -11,7 +11,7 @@ def retrieve(query: str, top_k: int = 5) -> list[dict]:
     from guardrails.pii_mask import mask_pii
     safe_query = mask_pii(query)
 
-    embedding = model.encode(safe_query).tolist()
+    embedding = list(model.embed([safe_query.masked_text]))[0].tolist()
 
     result = supabase.rpc('match_rag_documents', {
         'query_embedding': embedding,
