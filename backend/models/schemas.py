@@ -116,7 +116,7 @@ class HealthResponse(BaseModel):
     """
     status: str = Field(..., description="Overall API health status: 'healthy' or 'degraded'.")
     version: str = Field(default="1.0.0", description="API version string.")
-    chroma_document_count: int = Field(
+    document_count: int = Field(
         ...,
         description="Total number of document chunks currently indexed in ChromaDB."
     )

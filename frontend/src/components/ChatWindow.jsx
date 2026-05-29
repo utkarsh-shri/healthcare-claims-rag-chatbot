@@ -67,7 +67,7 @@ export default function ChatWindow({ initialMessage }) {
       let errText = 'An unexpected error occurred. Please try again.';
 
       if (detail.toLowerCase().includes('quota') || detail.toLowerCase().includes('rate') || err?.response?.status === 429) {
-        errText = '⚠️ Gemini API rate limit reached. Please wait 30–60 seconds and try again. (Free tier: limited requests per minute)';
+        errText = '⚠️ Groq API rate limit reached. Please wait 30–60 seconds and try again. (Free tier: limited requests per minute)';
       } else if (detail) {
         errText = detail;
       }

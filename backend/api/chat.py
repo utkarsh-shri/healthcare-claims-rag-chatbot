@@ -72,6 +72,6 @@ async def health_check() -> HealthResponse:
     return HealthResponse(
         status="healthy" if kb_loaded else "degraded",
         version="1.0.0",
-        chroma_document_count=doc_count,
+        document_count=doc_count,
         knowledge_base_loaded=kb_loaded,
     )

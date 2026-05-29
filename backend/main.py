@@ -62,6 +62,8 @@ async def lifespan(app: FastAPI):
         logger.error("GROQ_API_KEY is not set.")
     if not os.getenv("SUPABASE_URL"):
         logger.error("SUPABASE_URL is not set.")
+    if not os.getenv("SUPABASE_SERVICE_ROLE_KEY"):
+        logger.error("SUPABASE_SERVICE_ROLE_KEY is not set.")
 
     logger.info("Server is ready to accept requests.")
     yield  # Application runs here
@@ -80,7 +82,7 @@ app = FastAPI(
         "A Retrieval-Augmented Generation chatbot for pharmacy benefit management. "
         "Answers questions about claim adjudication, NCPDP reject codes, CMS guidelines, "
         "prior authorization requirements, and formulary tiers. "
-        "Powered by Gemini 1.5 Pro + ChromaDB."
+        "Powered by Groq Llama 3.1 70B + Supabase pgvector."
     ),
     version="1.0.0",
     lifespan=lifespan,

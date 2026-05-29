@@ -87,9 +87,9 @@ export default function App() {
 
         <div className="ml-auto flex items-center gap-3">
           <StatusBadge status={health?.status} />
-          {health?.chroma_document_count > 0 && (
+          {health?.document_count > 0 && (
             <span className="text-xs text-blue-300">
-              {health.chroma_document_count} chunks indexed
+              {health.document_count} chunks indexed
             </span>
           )}
         </div>
