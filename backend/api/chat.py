@@ -43,16 +43,8 @@ async def chat(request: Request, body: ChatRequest) -> ChatResponse:
     try:
         rag_result = answer(sanitized_query, session_id)
     except Exception as e:
-        import traceback
-        tb_str = traceback.format_exc()
         logger.error("RAG chain failed: %s", e, exc_info=True)
-        raise HTTPException(
-            status_code=500,
-            detail={
-                "error": str(e),
-                "traceback": tb_str
-            }
-        )
+        raise HTTPException(status_code=500, detail="The RAG pipeline encountered an error.") from e
 
     elapsed_ms = int((time.monotonic() - start_time) * 1000)
 

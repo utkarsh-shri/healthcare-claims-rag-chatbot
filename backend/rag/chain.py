@@ -38,7 +38,7 @@ def answer(query: str, session_id: str) -> dict:
         "sources": [
             {"document": d['source'],
              "excerpt": d['content'][:200],
-             "similarity": round(d['similarity'], 3)}
+             "relevance_score": round(d['similarity'], 3)}
             for d in docs
         ],
         "session_id": session_id
