@@ -29,7 +29,7 @@ def chunk_text(text: str) -> list[str]:
     return chunks
 
 for doc_path in DOCS_PATH.glob('*.txt'):
-    text = doc_path.read_text()
+    text = doc_path.read_text(encoding="utf-8")
     chunks = chunk_text(text)
     print(f"Ingesting {doc_path.name}: {len(chunks)} chunks")
 
@@ -37,8 +37,10 @@ for doc_path in DOCS_PATH.glob('*.txt'):
         embedding = model.encode(chunk).tolist()
         supabase.table('rag_documents').insert({
             'content': chunk,
-            'source': doc_path.name,
-            'chunk_index': i,
+            'metadata': {
+                'source': doc_path.name,
+                'chunk_index': i
+            },
             'embedding': embedding
         }).execute()
 
