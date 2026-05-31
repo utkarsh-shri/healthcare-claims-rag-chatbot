@@ -13,10 +13,24 @@ def retrieve(query: str, top_k: int = 5) -> list[dict]:
 
     embedding = list(model.embed([safe_query.masked_text]))[0].tolist()
 
+    threshold = float(os.getenv("RAG_SIMILARITY_THRESHOLD", "0.30"))
+
     result = supabase.rpc('match_rag_documents', {
         'query_embedding': embedding,
-        'match_threshold': 0.70,
+        'match_threshold': threshold,
         'match_count': top_k
     }).execute()
 
-    return result.data  # [{content, source, similarity}]
+    # Robustly map results to ensure 'source' is always present at the top level
+    docs = []
+    for doc in result.data or []:
+        source = doc.get('source')
+        if not source and 'metadata' in doc and isinstance(doc['metadata'], dict):
+            source = doc['metadata'].get('source')
+        docs.append({
+            'id': doc.get('id'),
+            'content': doc.get('content', ''),
+            'source': source or 'Unknown',
+            'similarity': doc.get('similarity', 0.0)
+        })
+    return docs

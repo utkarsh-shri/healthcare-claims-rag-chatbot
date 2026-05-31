@@ -7,7 +7,7 @@ import { sendChatMessage } from '../api/chat';
 const WELCOME_MESSAGE = {
   id: 'welcome',
   role: 'assistant',
-  content: 'Hello. I\'m the Claims Adjudication Assistant, powered by Groq Llama 3.1 70B.\n\nI can help you with:\n• NCPDP reject code explanations and resolution steps\n• CMS Part D formulary and coverage guidelines\n• Prior authorization criteria for specialty medications\n• Formulary tier structures and step therapy protocols\n• RxClaim adjudication rules and pricing logic\n\nAll responses are grounded in your organization\'s knowledge base. How can I assist you today?',
+  content: 'Hello. I\'m the Claims Adjudication Assistant, powered by Groq Llama 3.3 70B.\n\nI can help you with:\n• NCPDP reject code explanations and resolution steps\n• CMS Part D formulary and coverage guidelines\n• Prior authorization criteria for specialty medications\n• Formulary tier structures and step therapy protocols\n• RxClaim adjudication rules and pricing logic\n\nAll responses are grounded in your organization\'s knowledge base. How can I assist you today?',
   sources: [],
   pii_detected: false,
   response_time_ms: null,

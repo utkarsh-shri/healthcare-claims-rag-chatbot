@@ -22,7 +22,7 @@ def answer(query: str, session_id: str) -> dict:
     prompt = build_prompt(context=context, question=query)
 
     response = client.chat.completions.create(
-        model="llama-3.1-70b-versatile",
+        model="llama-3.3-70b-versatile",
         messages=[
             {"role": "system", "content": prompt['system']},
             {"role": "user", "content": prompt['user']}
