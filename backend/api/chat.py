@@ -10,8 +10,7 @@ Exposes:
 
 import time
 import logging
-from fastapi import APIRouter, HTTPException, status, Request, Security
-from fastapi.security import APIKeyHeader
+from fastapi import APIRouter, HTTPException, status, Request
 import os
 
 from models.schemas import ChatRequest, ChatResponse, HealthResponse
@@ -22,6 +21,9 @@ from supabase import create_client
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
+
+# Reuse a single Supabase client rather than creating a new one per request
+_supabase = create_client(os.environ['SUPABASE_URL'], os.environ['SUPABASE_SERVICE_ROLE_KEY'])
 
 @router.post(
     "/chat",
@@ -59,9 +61,8 @@ async def chat(request: Request, body: ChatRequest) -> ChatResponse:
 @router.get("/health", response_model=HealthResponse)
 async def health_check() -> HealthResponse:
     try:
-        # Check supabase connection
-        supabase = create_client(os.environ['SUPABASE_URL'], os.environ['SUPABASE_SERVICE_ROLE_KEY'])
-        res = supabase.table('rag_documents').select('id', count='exact').limit(1).execute()
+        # Check Supabase connection and document count
+        res = _supabase.table('rag_documents').select('id', count='exact').limit(1).execute()
         doc_count = res.count
         kb_loaded = doc_count > 0
     except Exception as e:

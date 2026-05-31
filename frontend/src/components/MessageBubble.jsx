@@ -62,7 +62,7 @@ function AssistantMessage({ content, sources, pii_detected, response_time_ms }) 
               </span>
             )}
             <span className="text-xs text-slate-400 ml-auto">
-              Gemini 2.0 Flash · RAG
+              Llama 3.1 8B · RAG
             </span>
           </div>
         </div>

@@ -118,7 +118,7 @@ class HealthResponse(BaseModel):
     version: str = Field(default="1.0.0", description="API version string.")
     document_count: int = Field(
         ...,
-        description="Total number of document chunks currently indexed in ChromaDB."
+        description="Total number of document chunks currently indexed in Supabase pgvector."
     )
     knowledge_base_loaded: bool = Field(
         ...,
@@ -133,6 +133,6 @@ class IngestResponse(BaseModel):
     status: str = Field(..., description="Ingestion status: 'success' or 'failed'.")
     documents_ingested: int = Field(
         ...,
-        description="Number of document chunks ingested into ChromaDB."
+        description="Number of document chunks ingested into Supabase pgvector."
     )
     message: str = Field(..., description="Human-readable summary of the ingestion result.")

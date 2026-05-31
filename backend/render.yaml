@@ -13,5 +13,13 @@ services:
         sync: false
       - key: ENVIRONMENT
         value: production
+      - key: APP_ENV
+        value: production
       - key: FRONTEND_URL
         value: https://healthcare-claims-rag-chatbot.vercel.app
+      - key: RAG_SIMILARITY_THRESHOLD
+        value: "0.30"
+      - key: RAG_TOP_K
+        value: "5"
+      - key: LOG_LEVEL
+        value: "INFO"

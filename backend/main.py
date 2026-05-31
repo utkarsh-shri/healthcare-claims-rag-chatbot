@@ -86,13 +86,13 @@ app = FastAPI(
         "A Retrieval-Augmented Generation chatbot for pharmacy benefit management. "
         "Answers questions about claim adjudication, NCPDP reject codes, CMS guidelines, "
         "prior authorization requirements, and formulary tiers. "
-        "Powered by Groq Llama 3.3 70B + Supabase pgvector."
+        "Powered by Groq Llama 3.1 8B Instant + Supabase pgvector."
     ),
     version="1.0.0",
     lifespan=lifespan,
-    docs_url="/docs" if os.getenv("APP_ENV", "development") == "development" else None,
-    redoc_url="/redoc" if os.getenv("APP_ENV", "development") == "development" else None,
-    openapi_url="/openapi.json" if os.getenv("APP_ENV", "development") == "development" else None,
+    docs_url="/docs" if os.getenv("APP_ENV", os.getenv("ENVIRONMENT", "development")) == "development" else None,
+    redoc_url="/redoc" if os.getenv("APP_ENV", os.getenv("ENVIRONMENT", "development")) == "development" else None,
+    openapi_url="/openapi.json" if os.getenv("APP_ENV", os.getenv("ENVIRONMENT", "development")) == "development" else None,
 )
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -155,6 +155,6 @@ if __name__ == "__main__":
         "main:app",
         host=os.getenv("APP_HOST", "0.0.0.0"),
         port=int(os.getenv("APP_PORT", "8000")),
-        reload=os.getenv("APP_ENV", "development") == "development",
+        reload=os.getenv("APP_ENV", os.getenv("ENVIRONMENT", "development")) == "development",
         log_level=LOG_LEVEL.lower(),
     )
