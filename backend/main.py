@@ -42,6 +42,10 @@ logger = logging.getLogger(__name__)
 _raw_origins = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://localhost:5173")
 CORS_ORIGINS: list[str] = [o.strip() for o in _raw_origins.split(",") if o.strip()]
 
+_frontend_url = os.getenv("FRONTEND_URL")
+if _frontend_url and _frontend_url not in CORS_ORIGINS:
+    CORS_ORIGINS.append(_frontend_url)
+
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Application Lifespan (startup / shutdown)
