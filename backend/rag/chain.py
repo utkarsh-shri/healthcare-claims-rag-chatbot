@@ -22,12 +22,12 @@ def answer(query: str, session_id: str) -> dict:
     prompt = build_prompt(context=context, question=query)
 
     response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model="llama-3.1-8b-instant",
         messages=[
             {"role": "system", "content": prompt['system']},
             {"role": "user", "content": prompt['user']}
         ],
-        temperature=0.1,    # low temp for factual healthcare answers
+        temperature=0.0,
         max_tokens=800
     )
 
