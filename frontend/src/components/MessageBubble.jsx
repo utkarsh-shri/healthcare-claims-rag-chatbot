@@ -25,7 +25,7 @@ function UserMessage({ content }) {
       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center shadow-sm">
         <User className="w-4 h-4 text-slate-600" />
       </div>
-      <div className="max-w-[75%]">
+      <div className="max-w-[90%] md:max-w-[75%]">
         <div className="bg-blue-700 text-white rounded-2xl rounded-tr-sm px-4 py-3 shadow-sm">
           <p className="text-sm leading-relaxed whitespace-pre-wrap">{content}</p>
         </div>
@@ -40,7 +40,7 @@ function AssistantMessage({ content, sources, pii_detected, response_time_ms }) 
       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-700 flex items-center justify-center shadow-sm">
         <Bot className="w-4 h-4 text-white" />
       </div>
-      <div className="max-w-[80%]">
+      <div className="max-w-[95%] md:max-w-[80%]">
         <div className="bg-white border border-slate-200 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm">
           <p className="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">{content}</p>
 

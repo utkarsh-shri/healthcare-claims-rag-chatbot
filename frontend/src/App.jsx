@@ -79,16 +79,16 @@ export default function App() {
           </div>
         </div>
 
-        <div className="h-5 w-px bg-white/20 mx-1" />
+        <div className="hidden sm:block h-5 w-px bg-white/20 mx-1" />
 
-        <span className="text-xs font-medium bg-blue-700 text-blue-100 border border-blue-600 px-2 py-0.5 rounded-md tracking-wide">
+        <span className="hidden sm:inline-flex text-xs font-medium bg-blue-700 text-blue-100 border border-blue-600 px-2 py-0.5 rounded-md tracking-wide">
           AI-Powered · Beta
         </span>
 
-        <div className="ml-auto flex items-center gap-3">
+        <div className="ml-auto flex flex-col sm:flex-row items-end sm:items-center gap-1 sm:gap-3">
           <StatusBadge status={health?.status} />
           {health?.document_count > 0 && (
-            <span className="text-xs text-blue-300">
+            <span className="hidden sm:inline text-xs text-blue-300">
               {health.document_count} chunks indexed
             </span>
           )}
@@ -99,7 +99,7 @@ export default function App() {
       <div className="flex flex-1 overflow-hidden">
 
         {/* ── Sidebar ──────────────────────────────────────── */}
-        <aside className="w-64 flex-shrink-0 bg-white border-r border-slate-200 flex flex-col overflow-y-auto">
+        <aside className="hidden md:flex w-64 flex-shrink-0 bg-white border-r border-slate-200 flex-col overflow-y-auto">
 
           {/* Session Info */}
           <div className="px-4 pt-5 pb-3 border-b border-slate-100">
