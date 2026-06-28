@@ -95,7 +95,7 @@ export default function ChatWindow({ initialMessage }) {
       )}
 
       {/* Info Banner */}
-      <div className="flex items-start gap-3 mx-4 mt-3 px-4 py-2 bg-blue-50 border border-blue-200 rounded-lg text-xs text-blue-700 justify-center">
+      <div className="flex items-start gap-3 mx-4 mt-3 px-4 py-2 bg-orange-50 border border-orange-200 rounded-lg text-xs text-orange-700 justify-center">
         <span>⚡ Note: First response may take 30s if the free backend service is waking up.</span>
       </div>
 

@@ -41,7 +41,7 @@ export default function InputBar({ onSend, isLoading }) {
       <div className={`flex items-end gap-3 rounded-xl border transition-colors duration-150 px-3 py-2.5 ${
         isOverLimit
           ? 'border-red-400 bg-red-50'
-          : 'border-slate-300 bg-white focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100'
+          : 'border-slate-300 bg-white focus-within:border-orange-500 focus-within:ring-2 focus-within:ring-orange-100'
       }`}>
         {/* Textarea */}
         <textarea
@@ -68,7 +68,7 @@ export default function InputBar({ onSend, isLoading }) {
             disabled={!canSend}
             className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-150 ${
               canSend
-                ? 'bg-blue-700 hover:bg-blue-800 text-white shadow-sm hover:shadow-md active:scale-95'
+                ? 'bg-orange-600 hover:bg-orange-700 text-white shadow-sm hover:shadow-md active:scale-95'
                 : 'bg-slate-100 text-slate-400 cursor-not-allowed'
             }`}
           >

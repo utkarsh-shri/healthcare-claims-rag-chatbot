@@ -44,11 +44,11 @@ export default function SourceCitations({ sources }) {
         className="w-full flex items-center justify-between px-3 py-2 bg-slate-50 hover:bg-slate-100 transition-colors duration-150 text-left"
       >
         <div className="flex items-center gap-2">
-          <BarChart2 className="w-3.5 h-3.5 text-blue-600" />
+          <BarChart2 className="w-3.5 h-3.5 text-orange-600" />
           <span className="text-xs font-semibold text-slate-600 uppercase tracking-wide">
             Source Citations
           </span>
-          <span className="bg-blue-100 text-blue-700 text-xs font-bold px-1.5 py-0.5 rounded-full">
+          <span className="bg-orange-100 text-orange-700 text-xs font-bold px-1.5 py-0.5 rounded-full">
             {sources.length}
           </span>
         </div>

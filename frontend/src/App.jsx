@@ -66,7 +66,7 @@ export default function App() {
   return (
     <div className="flex flex-col h-screen bg-slate-100 overflow-hidden">
       {/* ── Header Bar ─────────────────────────────────────── */}
-      <header className="flex-shrink-0 h-14 bg-blue-900 flex items-center px-5 gap-3 shadow-lg z-10">
+      <header className="flex-shrink-0 h-14 bg-zinc-900 flex items-center px-5 gap-3 shadow-lg z-10">
         <div className="flex items-center gap-2.5">
           <div className="w-7 h-7 bg-white/10 rounded-md flex items-center justify-center border border-white/20">
             <Shield className="w-4 h-4 text-white" />
@@ -75,20 +75,20 @@ export default function App() {
             <h1 className="text-sm font-semibold text-white leading-tight tracking-wide">
               Claims Adjudication Assistant
             </h1>
-            <p className="text-xs text-blue-200 leading-tight">Pharmacy Benefit Management</p>
+            <p className="text-xs text-zinc-400 leading-tight">Pharmacy Benefit Management</p>
           </div>
         </div>
 
         <div className="hidden sm:block h-5 w-px bg-white/20 mx-1" />
 
-        <span className="hidden sm:inline-flex text-xs font-medium bg-blue-700 text-blue-100 border border-blue-600 px-2 py-0.5 rounded-md tracking-wide">
+        <span className="hidden sm:inline-flex text-xs font-medium bg-orange-600 text-orange-50 border border-orange-500 px-2 py-0.5 rounded-md tracking-wide">
           AI-Powered · Beta
         </span>
 
         <div className="ml-auto flex flex-col sm:flex-row items-end sm:items-center gap-1 sm:gap-3">
           <StatusBadge status={health?.status} />
           {health?.document_count > 0 && (
-            <span className="hidden sm:inline text-xs text-blue-300">
+            <span className="hidden sm:inline text-xs text-orange-200">
               {health.document_count} chunks indexed
             </span>
           )}
@@ -108,7 +108,7 @@ export default function App() {
               <div className="flex items-center justify-between text-xs">
                 <span className="text-slate-500">Model</span>
                 <span className="font-medium text-slate-700 flex items-center gap-1">
-                  <Zap className="w-3 h-3 text-blue-500" />
+                  <Zap className="w-3 h-3 text-orange-500" />
                   Llama 3.1 8B · Groq
                 </span>
               </div>
@@ -135,7 +135,7 @@ export default function App() {
                 'Formulary Tier Structure',
               ].map((doc) => (
                 <div key={doc} className="flex items-center gap-2 text-xs text-slate-600 py-0.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0" />
                   {doc}
                 </div>
               ))}
@@ -150,13 +150,13 @@ export default function App() {
                 <button
                   key={item.label}
                   onClick={() => handleSuggestionClick(item.query)}
-                  className="w-full flex items-start gap-2 text-left px-2.5 py-2 rounded-lg text-xs text-slate-600 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-100 group"
+                  className="w-full flex items-start gap-2 text-left px-2.5 py-2 rounded-lg text-xs text-slate-600 hover:bg-orange-50 hover:text-orange-700 transition-colors duration-100 group"
                 >
-                  <span className="mt-0.5 text-slate-400 group-hover:text-blue-500 flex-shrink-0">
+                  <span className="mt-0.5 text-slate-400 group-hover:text-orange-500 flex-shrink-0">
                     {item.icon}
                   </span>
                   <span className="flex-1 leading-snug">{item.label}</span>
-                  <ChevronRight className="w-3 h-3 mt-0.5 text-slate-300 group-hover:text-blue-400 flex-shrink-0" />
+                  <ChevronRight className="w-3 h-3 mt-0.5 text-slate-300 group-hover:text-orange-400 flex-shrink-0" />
                 </button>
               ))}
             </div>
