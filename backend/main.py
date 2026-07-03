@@ -86,7 +86,7 @@ app = FastAPI(
         "A Retrieval-Augmented Generation chatbot for pharmacy benefit management. "
         "Answers questions about claim adjudication, NCPDP reject codes, CMS guidelines, "
         "prior authorization requirements, and formulary tiers. "
-        "Powered by Groq Llama 3.1 8B Instant + Supabase pgvector."
+        "Powered by Groq GPT OSS 20B + Supabase pgvector."
     ),
     version="1.0.0",
     lifespan=lifespan,

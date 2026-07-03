@@ -62,7 +62,7 @@ function AssistantMessage({ content, sources, pii_detected, response_time_ms }) 
               </span>
             )}
             <span className="text-xs text-slate-400 ml-auto">
-              Llama 3.1 8B · RAG
+              GPT OSS 20B · RAG
             </span>
           </div>
         </div>
