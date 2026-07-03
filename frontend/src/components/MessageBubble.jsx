@@ -1,5 +1,6 @@
 import React from 'react';
 import { User, Bot, ShieldAlert, Clock } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 import SourceCitations from './SourceCitations';
 
 function TypingIndicator() {
@@ -42,7 +43,9 @@ function AssistantMessage({ content, sources, pii_detected, response_time_ms }) 
       </div>
       <div className="max-w-[95%] md:max-w-[80%]">
         <div className="bg-white border border-slate-200 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm">
-          <p className="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">{content}</p>
+          <div className="text-sm text-slate-800 prose prose-sm prose-slate max-w-none prose-p:leading-relaxed prose-li:my-0.5">
+            <ReactMarkdown>{content}</ReactMarkdown>
+          </div>
 
           {/* Source citations */}
           <SourceCitations sources={sources} />
